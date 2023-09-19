@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Modal, View, TextInput, StyleSheet } from 'react-native';
-import { WishlistItem } from '../../pages/Dashboard';
+import { Modal, View, StyleSheet } from 'react-native';
+
 import Button from '../Button';
 import Input from '../Input';
+import { Container, TextInput, ButtonContainer } from './styles';
+import { WishlistItem } from '../../hooks/whishlist';
 
 interface EditModalProps {
   visible: boolean;
@@ -25,19 +27,20 @@ const EditModal: React.FC<EditModalProps> = ({
 
   return (
     <Modal visible={visible} animationType="slide">
-      <Button
-        title="Cancel"
-        onPress={onCancel}
-        color="blue"
-        icon="arrow-left"
-        background="white"
-      />
-      <View style={styles.container}>
-        <Input
-          style={styles.input}
+      <ButtonContainer>
+        <Button
+          title="Cancel"
+          onPress={onCancel}
+          color="white"
+          icon="arrowleft"
+          background="transparent"
+        />
+      </ButtonContainer>
+      <Container>
+        <TextInput
           onChangeText={(text) => setEditedItem(text)}
           value={editedItem}
-          placeholder='Nome'
+          placeholder="Nome"
         />
         <View style={styles.actions}>
           <Button
@@ -50,7 +53,7 @@ const EditModal: React.FC<EditModalProps> = ({
             Salvar
           </Button>
         </View>
-      </View>
+      </Container>
     </Modal>
   );
 };

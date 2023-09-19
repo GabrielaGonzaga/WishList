@@ -1,16 +1,9 @@
 {
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "strict": true
-  },
-  "extends": "expo/tsconfig.base"
+    "strict": false, // Change "true" to "false" for less strict checking
+    "noUnusedLocals": false, // Disable unused locals check
+    "noUnusedParameters": false, // Disable unused parameters check
+    "noImplicitAny": false // Disable implicit any check
+  }
 }

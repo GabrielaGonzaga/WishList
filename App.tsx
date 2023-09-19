@@ -1,23 +1,26 @@
-import 'react-native-gesture-handler';
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthProvider } from './src/contexts/auth';
+import TabNavigator from './src/Routes/TabNavigator';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { View, StyleSheet } from 'react-native';
 
-import Routes from './src/routes';
 const queryClient = new QueryClient();
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
+        {/* <GestureHandlerRootView> */}
+          <TabNavigator />
+        {/* </GestureHandlerRootView> */}
       </NavigationContainer>
     </QueryClientProvider>
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
